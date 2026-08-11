@@ -13,9 +13,46 @@ source, and the use this lane makes of it.
 
 ## Current contents
 
-**None.** No file from any other repository and no third party file has
-entered this working copy. Nothing has been transcribed, downloaded or
-copied in.
+One entry, the one this manifest expected. It entered in session three, at
+the moment of entry, before it was used for anything.
+
+### `data/king-wen-received.json`
+
+| field | value |
+| --- | --- |
+| origin | `kingwen-orderings-replication`, the deposit under audit, `10.5281/zenodo.21776041` |
+| retrieval address | tag `zenodo-v3`, file `verify_paper.py`, symbol `KING_WEN` |
+| access | read only, addressed at the tag; the neighbour's working tree was not moved and was confirmed still on its own branch afterwards |
+| retrieval date | 2026-08-11 |
+| SHA-256 of the source file at the tag | `cb0c923ece64370cec569d03fdb99cc0d325c09aeba2b94d98b373685995546f` |
+| SHA-256 of the file written here | `148646d3c7b82b5e8612d38bfa5d22fc4a8b102f0d28ad6565d7454e71bf9bf4` |
+| rights | same lane, same author; the deposit carries a licence file at its tag, and this is a transcription of a factual sequence rather than of expression |
+| use | the received King Wen order, the object of the whole analysis |
+| status | received data, never recomputed in this lane |
+
+**How it was transcribed.** Mechanically, by `tools/receive_kingwen.py`,
+which reads the blob at the tag through git and extracts the named symbol. It
+was not typed. A copying error is therefore not one of the ways this lane can
+be wrong, and the tool can be run again by anyone with a checkout to
+reproduce the file byte for byte.
+
+**What was checked on entry.** Sixty-four entries, all distinct, each inside
+a six bit value. Those are checks on the transcription, not a recomputation
+of the sequence.
+
+**What was not checked on entry, deliberately.** Whether the adjacency
+pairing of the sequence is the rotation and complementation matching. That is
+precondition P1 and it ran in the analysis, where it belongs, and passed.
+
+**Where the local checkout path went.** Nowhere. The tool takes it on the
+command line and stores it in no file.
+
+---
+
+## Third party files
+
+**None.** No file from outside this lane's own author has entered this
+working copy, and nothing under `vendor/` exists.
 
 The apparatus reused from a closed lane is recorded in `PROVENANCE.md` and
 not here, and the distinction is deliberate: those files were read and
@@ -26,37 +63,16 @@ here with its digest like anything else.
 
 ---
 
-## The one entry this manifest expects
+## The entry this manifest expected, and what became of it
 
-Named in advance so that its entry is expected rather than improvised.
+Sessions one and two named this entry in advance, before it existed, so that
+its arrival would be expected rather than improvised. It arrived in session
+three and is recorded above with its two digests. What was promised of it
+held: it was extracted mechanically and not typed, it was checked on entry
+for sixty-four distinct six bit values and for nothing else, the check that
+was deliberately deferred to the analysis was deferred there and passed
+there, and the local checkout path went nowhere.
 
-### `data/king-wen-received.json`, not yet present
-
-| field | value |
-| --- | --- |
-| origin | `kingwen-orderings-replication`, the deposit under audit |
-| retrieval address | tag `zenodo-v3`, file `verify_paper.py`, symbol `KING_WEN` |
-| access | read only, addressed at the tag; the neighbour's working tree is not moved, and that it did not move is confirmed after the read |
-| rights | same lane, same author; the deposit carries a licence file at its tag, and this is a transcription of a factual sequence rather than of expression |
-| use | the received King Wen order, the object of the whole analysis |
-| status | received data, never recomputed in this lane |
-
-**How it will be transcribed.** Mechanically, by a tool in this repository
-that reads the blob at the tag through git and extracts the named symbol. It
-will not be typed. A copying error is therefore not one of the ways this lane
-can be wrong, and the tool can be run again by anyone with a checkout to
-reproduce the file byte for byte.
-
-**What will be checked on entry.** That the list has sixty-four entries, that
-they are distinct, and that each lies in the range of a six bit value. Those
-are checks on the transcription, not a recomputation of the sequence, which
-would defeat the point of receiving it.
-
-**What will deliberately not be checked on entry.** Whether the adjacency
-pairing of the sequence is the rotation and complementation matching. That is
-precondition P1 of `PREREGISTRATION.md` section (d), it belongs to the
-analysis, and it is reported there whatever it says.
-
-**Where the local checkout path will go.** Nowhere. The tool takes it on the
-command line and stores it in no file. The repository and the tag identify
-the source; a path on one machine identifies an account.
+The forward looking text that stood here is not reproduced. It is in the
+history at the commits that carried it, which is where a promise belongs once
+it has been kept.

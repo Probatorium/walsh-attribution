@@ -1,0 +1,183 @@
+{
+  "H_resid_refuted": true,
+  "P1": {
+    "blocks_in_common": 32,
+    "received_adjacency_is_the_matching": true
+  },
+  "P2": {
+    "agrees_to_one_decimal": true,
+    "printed_percent": 77.4,
+    "recomputed_percent": 77.4
+  },
+  "attribution": {
+    "A_attributable": 0.35039119950852454,
+    "A_interval": [
+      0.3486892171401827,
+      0.35209318187686633
+    ],
+    "R_interval": [
+      0.6479068181231337,
+      0.6513107828598172
+    ],
+    "R_residual": 0.6496088004914755,
+    "excess": 0.29812271062271056,
+    "explained": 0.1044595741758243,
+    "ratio_admissible": true,
+    "residual": 0.19366313644688626
+  },
+  "draws_per_null": 200000,
+  "family_wise_level": 0.05,
+  "focal": {
+    "free_mean_exact": 0.47619047619047616,
+    "free_mean_sampled": 0.4762812418440934,
+    "free_percentile": 99.98,
+    "observed": 0.7743131868131867,
+    "pair_mean": 0.5806500503663005,
+    "pair_percentile": 95.535,
+    "pair_sd": 0.11577346845221802,
+    "pair_se_of_mean": 0.00025887734545008685
+  },
+  "observed_focal": 0.7743131868131867,
+  "observed_non_dc_energy": 1397760,
+  "observed_shares": [
+    0.04139194139194139,
+    0.5029990842490842,
+    0.1428113553113553,
+    0.27131410256410254,
+    0.0413003663003663,
+    0.00018315018315018315
+  ],
+  "profile": [
+    {
+      "free_mean": 0.09519058072916665,
+      "free_percentile": 13.31,
+      "observed": 0.04139194139194139,
+      "order": 1,
+      "pair_mean": 0.07246454739010989,
+      "pair_percentile": 34.708,
+      "pair_sd": 0.054617159709305196
+    },
+    {
+      "free_mean": 0.23795058055746338,
+      "free_percentile": 99.8815,
+      "observed": 0.5029990842490842,
+      "order": 2,
+      "pair_mean": 0.2903381983745421,
+      "pair_percentile": 95.9665,
+      "pair_sd": 0.11191795180945249
+    },
+    {
+      "free_mean": 0.31753681146978024,
+      "free_percentile": 0.8315,
+      "observed": 0.1428113553113553,
+      "order": 3,
+      "pair_mean": 0.24217606055402932,
+      "pair_percentile": 14.674,
+      "pair_sd": 0.0954715301437123
+    },
+    {
+      "free_mean": 0.23833066128663005,
+      "free_percentile": 68.6935,
+      "observed": 0.27131410256410254,
+      "order": 4,
+      "pair_mean": 0.29031185199175824,
+      "pair_percentile": 46.605,
+      "pair_sd": 0.11158507968191834
+    },
+    {
+      "free_mean": 0.09515910001717033,
+      "free_percentile": 13.2885,
+      "observed": 0.0413003663003663,
+      "order": 5,
+      "pair_mean": 0.07262367135989012,
+      "pair_percentile": 34.41,
+      "pair_sd": 0.05471719398317163
+    },
+    {
+      "free_mean": 0.015832265939789376,
+      "free_percentile": 8.0,
+      "observed": 0.00018315018315018315,
+      "order": 6,
+      "pair_mean": 0.03208567032967033,
+      "pair_percentile": 4.4785,
+      "pair_sd": 0.04418809409599946
+    }
+  ],
+  "received_source": {
+    "deposit": "10.5281/zenodo.21776041",
+    "file": "verify_paper.py",
+    "file_sha256": "cb0c923ece64370cec569d03fdb99cc0d325c09aeba2b94d98b373685995546f",
+    "ref": "zenodo-v3",
+    "repository": "kingwen-orderings-replication",
+    "symbol": "KING_WEN",
+    "transcription_sha256": "148646d3c7b82b5e8612d38bfa5d22fc4a8b102f0d28ad6565d7454e71bf9bf4"
+  },
+  "seed": 21776041,
+  "smallest_adjusted_p": 0.31258343708281455,
+  "tests": [
+    {
+      "adjusted_p": 0.31258343708281455,
+      "at_least_as_extreme": 8930,
+      "below_threshold": false,
+      "raw_p": 0.04465477672611637,
+      "tail": "one sided, upper",
+      "test": "T0",
+      "what": "share at orders 2 and 4"
+    },
+    {
+      "adjusted_p": 1.0,
+      "at_least_as_extreme": 116978,
+      "below_threshold": false,
+      "raw_p": 0.5848920755396223,
+      "tail": "two sided",
+      "test": "T1",
+      "what": "share at order 1"
+    },
+    {
+      "adjusted_p": 0.31258343708281455,
+      "at_least_as_extreme": 9963,
+      "below_threshold": false,
+      "raw_p": 0.04981975090124549,
+      "tail": "two sided",
+      "test": "T2",
+      "what": "share at order 2"
+    },
+    {
+      "adjusted_p": 1.0,
+      "at_least_as_extreme": 59929,
+      "below_threshold": false,
+      "raw_p": 0.2996485017574912,
+      "tail": "two sided",
+      "test": "T3",
+      "what": "share at order 3"
+    },
+    {
+      "adjusted_p": 1.0,
+      "at_least_as_extreme": 174487,
+      "below_threshold": false,
+      "raw_p": 0.8724356378218109,
+      "tail": "two sided",
+      "test": "T4",
+      "what": "share at order 4"
+    },
+    {
+      "adjusted_p": 1.0,
+      "at_least_as_extreme": 116056,
+      "below_threshold": false,
+      "raw_p": 0.5802820985895071,
+      "tail": "two sided",
+      "test": "T5",
+      "what": "share at order 5"
+    },
+    {
+      "adjusted_p": 1.0,
+      "at_least_as_extreme": 46426,
+      "below_threshold": false,
+      "raw_p": 0.23213383933080334,
+      "tail": "two sided",
+      "test": "T6",
+      "what": "share at order 6"
+    }
+  ],
+  "validation_record_sha256": "2a1743268e4df3a9d1120318fe0ffb31f09795ba06d89739242c41f26276a3b7"
+}
