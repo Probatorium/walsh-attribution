@@ -1,30 +1,37 @@
 # Errata candidates for the deposit under audit
 
-Two candidates, prepared here and applied nowhere. This repository does not
+Three candidates, prepared here and applied nowhere. This repository does not
 touch the package of the deposit under audit, does not open any branch of it,
 and does not write to it. `CONTACT-RULES.md` rule one forbids all of that and
 `PREREGISTRATION.md` section (g) forbids it again for the specific case where
 this lane concludes against the footnote.
 
-What this document is: two entries in a form that can be carried, by Alexis,
-into that package's own errata process whenever he wants. The package carries
-an `ERRATA.md` at its deposit tag, so the process exists and this is not an
-invitation to invent one.
+What this document is: three entries in a form that can be carried, by
+Alexis, into that package's own errata process whenever he wants. The package
+carries an `ERRATA.md` at its deposit tag, so the process exists and this is
+not an invitation to invent one.
 
-**Neither candidate changes a printed number.** Both figures the footnote
-prints stand. What is wrong in each case is the sentence that says what the
-figures are of. That is the whole content of both entries and it is stated
-first so that nobody reads further expecting a numerical correction.
+**This document was opened in session two with two entries and gained a third
+in session four.** The opening text said "two" and said that both entries
+were found by reading rather than by measuring, which was true of both and is
+not true of the third. That text is in the history at the commit that carried
+it, and the two sentences below replace it rather than pretending it was
+always this.
 
-**Neither candidate is a finding of this lane's analysis.** Both were found
-by reading the deposit at its tag in order to write `PREREGISTRATION.md`
-section (b), before any measurement existed here, and both are recorded in
-that signed document. They are reported as what they are: discrepancies
-between prose and code that are visible to anyone who opens both at the same
-tag.
+**No candidate changes a printed number.** Every figure the footnote prints
+stands, and the measurement of session three confirmed both of them: the
+share recomputed here is the printed one to one decimal, and the printed
+baseline is exactly `30/63`. What each entry is about is a sentence.
 
-**Source read**, for both entries, under `CONTACT-RULES.md` rule one, at tag
-`zenodo-v3` of `kingwen-orderings-replication`, deposit
+**The first two candidates are readings, the third is a measurement.**
+Candidates one and two were found by opening the prose and the code at the
+same tag, before any measurement existed here, and both are recorded in the
+signed preregistration. Candidate three could not have been written before
+the analysis session, and the closing section of this document says in its
+own words that it was not.
+
+**Source read**, for candidates one and two, under `CONTACT-RULES.md` rule
+one, at tag `zenodo-v3` of `kingwen-orderings-replication`, deposit
 `10.5281/zenodo.21776041`:
 
 | file | git blob | SHA-256 of contents |
@@ -33,7 +40,9 @@ tag.
 | `verify_paper.py` | `100a0e7e93691b9d0989a6f86788fe22894813d7` | `cb0c923ece64370cec569d03fdb99cc0d325c09aeba2b94d98b373685995546f` |
 
 Nothing in that repository moved. The tag was addressed directly and the
-working tree was on its own branch before and after.
+working tree was on its own branch before and after. Candidate three quotes
+the same footnote at the same tag and takes its figures from
+`results/measurement.json` in this repository.
 
 ---
 
@@ -151,17 +160,120 @@ which is the set the package computes both over.
 
 ---
 
-## What is not claimed by either entry
+## Candidate three: the attribution the footnote makes is offered for a gap it covers about a third of
 
-- Nothing about the care, competence or honesty of anyone. Both entries are
-  about two sentences and what the code at the same tag does instead.
+**This entry was not available when the other two were written, and the
+document said so.** Session two wrote, in the closing section below: "Nothing
+about the attribution in the same footnote, the clause 'a spectral
+confirmation of the pair rule'. That clause is the object of this lane's
+measurement and is not an erratum candidate. Whether it is supported is a
+question this repository answers by measuring, not by reading, and it has not
+measured it yet." It has now measured it. This entry is what came out, and it
+rests on the measurement rather than on a reading of the text.
+
+### The published prose
+
+`paper.tex`, line 241, the same footnote, the clause at its end:
+
+> with that signal, the Walsh spectrum of the King Wen ordering concentrates
+> 77.4 percent of its energy in even interaction orders, against 47.6 percent
+> expected for orders $\{2,4\}$ under uniformity, a spectral confirmation of
+> the pair rule.
+
+### What was measured, and where the numbers come from
+
+Every figure below is from `results/measurement.json` in this repository,
+produced by `analysis/measure.py` at the sample size and seed fixed in
+`PREREGISTRATION.md` section (f), on a sampler validated by two independent
+routes before the observed value was read. `RESULTS.md` carries the tables.
+
+Both of the footnote's own figures are confirmed and neither is in question.
+The share recomputed here is 77.4 percent to one decimal, and the baseline is
+not merely near the printed value but exactly `30/63`, that is 0.476190,
+which is the exact mean of this statistic under a free permutation.
+
+The measurement adds the quantity the footnote's comparison cannot contain.
+Under a null that permutes the thirty-two received pairs and flips
+orientations within them, holding the pair rule fixed and randomising
+everything it leaves free:
+
+| quantity | value |
+| --- | --- |
+| observed focal share | 0.774313 |
+| mean under the pair preserving family | 0.580650 |
+| mean under uniformity, exact | 0.476190 |
+| excess over uniformity | 0.298123 |
+| the part the pair rule accounts for | 0.104460 |
+| the part it does not | 0.193663 |
+| **share of the excess attributable to the pair rule** | **0.3504** |
+| **share not attributable to it** | **0.6496** |
+
+Two qualifications belong to the entry and not to a footnote a reader might
+add later.
+
+**The residual is not distinguishable from ordinary variation inside that
+family under the correction this lane declared in advance.** The observed
+value sits at the 95.535 percentile of the pair preserving family. All seven
+declared tests, corrected as the signed document fixes, give adjusted p of at
+least the declared level, the smallest being 0.312583. So the entry says
+nothing about the residual beyond its size, and any wording taken from it
+should not either.
+
+**A comparison against uniformity cannot separate the two parts.** This is
+the structural point and it is the reason the clause is a candidate at all.
+The footnote compares the observed share against what a free permutation
+would give. That comparison is correct and it is informative, and it cannot
+distinguish the part of the gap that follows from the pair rule from the part
+that does not, because the pair rule is not in it. Separating them requires
+the conditional null, and the conditional null puts about a third of the gap
+on the pair rule.
+
+### Correction proposed, in one sentence
+
+Replace "a spectral confirmation of the pair rule" with a clause that states
+what the comparison supports and what it does not, for instance: "a
+concentration consistent with the pair rule, which under a pair preserving
+null accounts for about a third of the excess over uniformity, the remainder
+lying within the ordinary variation of that null."
+
+### What this entry does not say
+
+It does not say the attribution is wrong. Conditioning on the pair rule
+raises the expected share by 0.104460, which is a large absolute movement,
+so an attribution to the pair rule is an attribution to something real.
+
+It does not say anything about the residual other than its size, for the
+reason given above.
+
+It does not say anything about the writer of the footnote, who is the author
+of this lane, and `PREREGISTRATION.md` section (g) binds this entry as it
+binds every other artefact here.
+
+---
+
+## What is not claimed by any of the three entries
+
+- Nothing about the care, competence or honesty of anyone. The entries are
+  about three sentences: what the code at the same tag does instead, in two
+  cases, and what a conditional null measures, in the third.
   `PREREGISTRATION.md` section (g) binds this document as it binds every
   other artefact of this lane.
-- Nothing about the attribution in the same footnote, the clause "a spectral
-  confirmation of the pair rule". That clause is the object of this lane's
-  measurement and is not an erratum candidate. Whether it is supported is a
-  question this repository answers by measuring, not by reading, and it has
-  not measured it yet.
-- No claim that these are the only discrepancies in that footnote or
-  anywhere else in that package. Two were found while reading one footnote
-  for one purpose. No sweep was run.
+- No claim that these are the only discrepancies in that footnote or anywhere
+  else in that package. Three were found while reading and then measuring one
+  footnote for one purpose. No sweep was run.
+
+### The sentence this section used to carry, and what became of it
+
+Sessions two and three left the following bullet standing here, and it is
+reproduced rather than deleted because it was true when it was written and
+because what replaced it is the whole point of the lane:
+
+> Nothing about the attribution in the same footnote, the clause "a spectral
+> confirmation of the pair rule". That clause is the object of this lane's
+> measurement and is not an erratum candidate. Whether it is supported is a
+> question this repository answers by measuring, not by reading, and it has
+> not measured it yet.
+
+It has now measured it, and candidate three is what came out. The bullet is
+retired by that entry and not by an edit that would have made this document
+look as though it had always known.
