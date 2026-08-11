@@ -13,65 +13,82 @@ apparatus.
 
 ## Decisions taken
 
-**None.** No decision has been taken in this lane.
+All four decisions this register opened with were taken in session two, on
+2026-08-11, by Alexis Garcia Hurtado. Each is recorded below with what it
+changed and what it did not.
+
+### Decision one: the name is `walsh-attribution`
+
+- **Decider**: Alexis Garcia Hurtado. **Date**: 2026-08-11, session two.
+- **Grounds**: the measured occupancy of `spectral-attribution` reported in
+  `NAME-GATE.md`. The compound is taken by exact string, as a public
+  repository name and as a term of art in machine learning interpretability.
+- **What changed**: the name of the lane and of the repository Alexis
+  creates on the forge.
+- **What did not change**: the signed preregistration, which still opens
+  `Repository: spectral-attribution` and is not amended. It declared the name
+  provisional and defined everything extensionally, which is why the rename
+  costs nothing in the design. The local checkout directory also keeps its
+  old name, which `CONTACT-RULES.md` treats as an accident of one machine.
+- **The measurement that produced it is not deleted.** `NAME-GATE.md` still
+  carries its queries, its limits, its findings, its verdict and the rejected
+  candidate with the reason for rejection.
+
+### Decision two: a remote is authorised
+
+- **Decider**: Alexis Garcia Hurtado. **Date**: 2026-08-11, session two.
+- **What is authorised**: creating a remote named `walsh-attribution`,
+  attaching it, and publishing this history to it, subject to the house
+  procedure being run first and reported.
+- **The house procedure, required before the first push**: a one line log of
+  every commit; a sweep of every blob of every commit for secrets, tokens and
+  personal paths; and `git ls-remote` to confirm the remote is empty. After
+  the push: address, visibility, local head, remote head, and confirmation
+  that the trees are identical.
+- **Scope**: the authorisation is for publishing this history. It does not
+  authorise a change of visibility, a release, or a deposit, and it does not
+  make every later push automatic.
+- **Execution state at the close of session two**: the house procedure ran
+  and its output is in `SESSION-REPORT-002.md`. The remote could not be
+  attached, because the repository does not exist yet on the forge: at the
+  time of the check, neither `github.com/Probatorium/walsh-attribution` nor
+  `github.com/theoriginaliching/walsh-attribution` resolves, while other
+  repositories under the same accounts do resolve with the same credentials.
+  Nothing was created by this lane, because decision two says Alexis creates
+  the repository. The push is therefore pending on that one act and on
+  nothing else.
+
+### Decision three: the artefacts stay in English
+
+- **Decider**: Alexis Garcia Hurtado. **Date**: 2026-08-11, session two.
+- **Grounds**: the deposit under audit, the neighbouring deposits and the
+  cited works are in English, and an audit of an English footnote that a
+  reader cannot line up against the footnote is worth less.
+- **Consequence**: no forward Spanish version is prepared, and the note in
+  `SESSION-REPORT-001.md` about that possibility is closed.
+
+### Decision four: the expected shape of this lane is the intended one
+
+- **Decider**: Alexis Garcia Hurtado. **Date**: 2026-08-11, session two.
+- **What was accepted**: that the likely headline of this lane is
+  deflationary. On the declared prior, `H_resid` is expected to be refuted,
+  the informative content is then the attribution magnitude rather than a
+  significant tail, and raising the sample size cannot change that.
+- **Why this mattered enough to be a decision**: `PREREGISTRATION.md` is
+  signed and can only be superseded, not edited. A change of intent after the
+  analysis session would have been expensive. It was taken before that
+  session, which is the point.
+- **Consequence**: the analysis session proceeds as designed, and a
+  deflationary result is reported as a result rather than as a
+  disappointment.
 
 ---
 
-## Decisions open, and what each one is waiting on
+## Decisions open
 
-### One: the name
+**None.**
 
-`NAME-GATE.md` found `spectral-attribution` occupied by exact string, as a
-public repository name and as a compound term of art in machine learning
-interpretability. The gate recommends renaming and names `walsh-attribution`
-as the leading candidate on the queries it ran.
-
-- **Decider**: Alexis.
-- **Cost of deciding late**: renaming is free while this repository has no
-  remote and no deposit. After either exists, a rename breaks an address.
-- **Cost of deciding wrong**: a retrieval collision paid by every future
-  reader, not by the author.
-- **What does not depend on it**: the signed design. `PREREGISTRATION.md`
-  defines the signal, the statistic and both nulls extensionally and uses no
-  name as a load bearing term, so a rename would amend no signed text.
-
-### Two: whether this lane ever has a remote
-
-The repository was created with none, and `CONTACT-RULES.md` rule six
-requires an explicit request from Alexis, recorded here with its date, before
-one exists.
-
-- **Decider**: Alexis.
-- **Note**: being asked to build a lane was not read as being asked to
-  publish one, and nothing in this session assumed otherwise.
-
-### Three: the language of the artefacts
-
-They are written in English. The judgement behind that is the same one the
-prior lanes made: the deposit under audit, the neighbouring deposits and the
-cited works are in English, and an audit of an English footnote that a reader
-cannot line up against the footnote is worth less.
-
-- **Decider**: Alexis.
-- **Note**: the judgement was made without asking. If Spanish is wanted,
-  `PREREGISTRATION.md` cannot be amended, so the correction would be forward:
-  a Spanish version declared normative in a later commit, with the English
-  one left standing in the history and the reason recorded in `DEFECTS.md`.
-
-### Four: whether the expected shape of this lane is the intended one
-
-`PREREGISTRATION.md` section (e) says, before any measurement, that on the
-declared prior the refutation of `H_resid` is the expected outcome, and that
-the informative content of the lane is then the attribution magnitude rather
-than a significant tail. It also says that raising the sample size cannot
-change that, and why.
-
-- **Decider**: Alexis.
-- **What is being asked**: confirmation that a lane whose likely headline is
-  "the pair rule accounts for part of the excess, and the remainder is not
-  distinguishable from ordinary variation inside the family" is the lane that
-  was wanted. It is a real result and the design establishes it. It is not
-  the result a reader hoping for a surprise would want.
-- **Cost of deciding late**: the document is signed. It can be superseded and
-  it cannot be edited, so a change of intent after the analysis session is
-  more expensive than one before it.
+Two things that are pending are not decisions and are recorded as execution
+state rather than as open questions: the creation of the forge repository,
+which belongs to Alexis under decision two, and the first push, which follows
+from it automatically once the repository exists.

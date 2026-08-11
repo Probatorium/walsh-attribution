@@ -116,18 +116,29 @@ deposit and no tag.
 
 ## 6. Remote and publication
 
-- **This repository is born with no remote.** It has none at the time this
-  rule is written, and the untouchable gate reports on the remotes it does
-  have, which is none.
-- **Creating a remote requires an explicit request from Alexis**, recorded in
-  `DECISIONS.md` with its date. Being asked to build a lane is not being
-  asked to publish one. No push, no forge repository, no visibility change
-  and no deposit follows from anything in this session.
-- If a remote is ever authorised, the house procedure runs before the first
-  push and its output is reported: a one line log of every commit, a sweep of
-  every blob of every commit for secrets, tokens and personal paths, and a
-  check that the remote is empty. After the push: address, visibility, local
+Rule nine makes this rule the one that records a state of affairs and is
+updated when that state of affairs changes. It changed in session two and the
+text below is the state after the change. What it said before is in the
+history at the commit that carried it.
+
+- **This repository was born with no remote**, and had none through the whole
+  inaugural session.
+- **A remote is authorised**, by decision two of `DECISIONS.md`, taken by
+  Alexis on 2026-08-11. The authorised name is `walsh-attribution`, adopted
+  by decision one. The repository on the forge is created by Alexis, not by
+  this lane.
+- **The authorisation is for publishing this history.** It does not authorise
+  a change of visibility, a release, or a deposit, and it does not make every
+  later push automatic.
+- **The house procedure runs before the first push and its output is
+  reported**: a one line log of every commit, a sweep of every blob of every
+  commit for secrets, tokens and personal paths, and `git ls-remote` to
+  confirm the remote is empty. After the push: address, visibility, local
   head, remote head, and confirmation that the trees are identical.
+- **State at the close of session two**: no remote is attached, because the
+  repository does not yet exist on the forge. The house procedure ran and is
+  reported in `SESSION-REPORT-002.md`. Nothing was created on any forge by
+  this lane.
 
 ## 7. Files that this lane did not produce
 

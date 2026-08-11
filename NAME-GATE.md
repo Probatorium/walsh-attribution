@@ -115,14 +115,37 @@ the leading candidate, and `pair-rule-spectrum` is rejected.
 
 ## Status of the decision
 
-**OPEN. It belongs to Alexis.**
+**DECIDED. `walsh-attribution` is adopted.**
 
-The recommendation above is a recommendation. This lane does not rename
-itself on its own authority, and the local directory keeps the name it was
-created with until a decision is recorded in `DECISIONS.md` with its decider
-and its date.
+- Date: 2026-08-11, in session two.
+- Decider: Alexis Garcia Hurtado.
+- Grounds: the measured occupancy of `spectral-attribution` reported above.
+  The compound is taken by exact string, as a public repository name and as a
+  term of art in a different and active field, and the collision is a
+  retrieval collision paid by every future reader.
+- Recorded in `DECISIONS.md`, decision one.
 
-Three facts bear on the decision and are recorded so that it can be taken
+Nothing above this line is rewritten to agree with the outcome. In
+particular the verdict still says what it said, that the name was occupied
+and that `walsh-attribution` was available on the queries run, and the
+rejected candidate is still recorded with the reason it was rejected. The
+gate is the measurement; this section is the decision the measurement
+produced.
+
+**What the rename does not touch.** `PREREGISTRATION.md` is signed and is not
+amended. It opens with the line `Repository: spectral-attribution`, and that
+line stays exactly as it was signed. The document itself anticipated this: it
+declares the name provisional and defines the signal, the statistic and both
+nulls extensionally, so no load bearing term changed and no signed text needs
+correcting. A reader meeting the old name at the top of the signed document
+is meeting the name the document was signed under, which is the correct thing
+for a signature to preserve.
+
+**The local checkout directory keeps its old name.** That is an accident of
+one machine and `CONTACT-RULES.md` says so in its opening paragraph:
+repositories are identified by repository, not by where they sit on a disk.
+
+Three facts bore on the decision and are recorded so that it could be taken
 quickly:
 
 1. **Nothing in the design depends on the name.** `PREREGISTRATION.md`
