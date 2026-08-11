@@ -50,13 +50,21 @@ changed and what it did not.
   make every later push automatic.
 - **Execution state at the close of session two**: the house procedure ran
   and its output is in `SESSION-REPORT-002.md`. The remote could not be
-  attached, because the repository does not exist yet on the forge: at the
+  attached, because the repository did not exist yet on the forge: at the
   time of the check, neither `github.com/Probatorium/walsh-attribution` nor
-  `github.com/theoriginaliching/walsh-attribution` resolves, while other
-  repositories under the same accounts do resolve with the same credentials.
+  `github.com/theoriginaliching/walsh-attribution` resolved, while other
+  repositories under the same accounts did resolve with the same credentials.
   Nothing was created by this lane, because decision two says Alexis creates
-  the repository. The push is therefore pending on that one act and on
+  the repository. The push was therefore pending on that one act and on
   nothing else.
+- **Executed in session three.** Alexis created the repository, public and
+  empty. The house procedure was re-run over the history as it then stood,
+  the remote was attached, the remote was confirmed empty, and the history
+  was pushed. Address, visibility, both heads and the confirmation that the
+  trees are identical are in `SESSION-REPORT-003.md`.
+- **Not covered, and stated again because it is easy to assume otherwise**:
+  the commits made after that push. They are local until publishing them is
+  asked for, and the house procedure runs again over what is new.
 
 ### Decision three: the artefacts stay in English
 

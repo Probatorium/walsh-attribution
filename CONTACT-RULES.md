@@ -139,6 +139,18 @@ history at the commit that carried it.
   repository does not yet exist on the forge. The house procedure ran and is
   reported in `SESSION-REPORT-002.md`. Nothing was created on any forge by
   this lane.
+- **State in session three**: Alexis created
+  `github.com/Probatorium/walsh-attribution`, public and empty. The house
+  procedure was re-run over the history as it then stood and its output is in
+  `SESSION-REPORT-003.md`. The remote was attached and the history was
+  pushed. The observed value of the statistic had not been read at that
+  moment and was not read until after the push returned, which is the
+  ordering that gives the signed preregistration a public timestamp earlier
+  than the measurement it governs. Both events carry their clock in the
+  effort log.
+- **What the authorisation still does not cover**: pushes after that one. The
+  commits a later session makes are published only when that is asked for
+  again, and the house procedure runs again over whatever is new.
 
 ## 7. Files that this lane did not produce
 
