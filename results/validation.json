@@ -1,0 +1,182 @@
+{
+  "checks": [
+    {
+      "check": "the first two streams are identical whether two or three are spawned",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "the binary ordering has zero energy at orders 2 to 6",
+      "detail": "orders 2 to 6 sum to 0",
+      "passed": true
+    },
+    {
+      "check": "all non-DC energy of the binary ordering sits at order 1",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "that non-DC total is the constant of (b.1)",
+      "detail": "1397760",
+      "passed": true
+    },
+    {
+      "check": "binary ordering, bottom-significant, solid as zero",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "binary ordering, top-significant, solid as one",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "binary ordering, top-significant, solid as zero",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "2000 free draws, bottom-significant, solid as zero",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "2000 free draws, top-significant, solid as one",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "2000 free draws, top-significant, solid as zero",
+      "detail": "",
+      "passed": true
+    },
+    {
+      "check": "every draw satisfies the published predicate",
+      "detail": "2000 of 2000",
+      "passed": true
+    },
+    {
+      "check": "every draw satisfies this lane's own predicate",
+      "detail": "2000 of 2000",
+      "passed": true
+    },
+    {
+      "check": "every draw satisfies the closed lane's predicate",
+      "detail": "2000 of 2000",
+      "passed": true
+    },
+    {
+      "check": "this lane's assembly agrees with the published assembly",
+      "detail": "2000 of 2000",
+      "passed": true
+    },
+    {
+      "check": "the published decomposition recovers the permutation and the orientations this sampler chose",
+      "detail": "2000 of 2000",
+      "passed": true
+    },
+    {
+      "check": "witness, one hexagram exchanged across two pairs",
+      "detail": "published False, this lane False, closed lane False, expected False",
+      "passed": true
+    },
+    {
+      "check": "witness, the whole arrangement rotated by one position",
+      "detail": "published False, this lane False, closed lane False, expected False",
+      "passed": true
+    },
+    {
+      "check": "witness, a free shuffle of all sixty-four positions",
+      "detail": "published False, this lane False, closed lane False, expected False",
+      "passed": true
+    },
+    {
+      "check": "witness, a within pair flip, which IS in the family",
+      "detail": "published True, this lane True, closed lane True, expected True",
+      "passed": true
+    },
+    {
+      "check": "every free null draw has the exact non-DC energy of (b.1)",
+      "detail": "200000 of 200000",
+      "passed": true
+    },
+    {
+      "check": "every pair preserving draw has the exact non-DC energy of (b.1)",
+      "detail": "200000 of 200000",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 1 agrees with C(6,k)/63",
+      "detail": "mean 0.095323 against 0.095238, 0.73 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 2 agrees with C(6,k)/63",
+      "detail": "mean 0.237790 against 0.238095, 1.80 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 3 agrees with C(6,k)/63",
+      "detail": "mean 0.317606 against 0.317460, 0.79 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 4 agrees with C(6,k)/63",
+      "detail": "mean 0.237963 against 0.238095, 0.79 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 5 agrees with C(6,k)/63",
+      "detail": "mean 0.095396 against 0.095238, 1.36 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean share at order 6 agrees with C(6,k)/63",
+      "detail": "mean 0.015922 against 0.015873, 0.98 standard errors",
+      "passed": true
+    },
+    {
+      "check": "free null mean of the focal share agrees with 30/63 exactly",
+      "detail": "mean 0.475753 against 0.476190, 2.22 standard errors",
+      "passed": true
+    },
+    {
+      "check": "pair preserving mean energy at order 6 agrees with (b.4)",
+      "detail": "mean 45090.2 against 45056, 0.25 standard errors",
+      "passed": true
+    },
+    {
+      "check": "for the reader, the same fact as a share",
+      "detail": "0.032259 against 44/1365 = 0.032234",
+      "passed": true
+    }
+  ],
+  "closed_lane_ref": "2fb7127269b5afd26eee91cbf98648c63d8b9fc4",
+  "convention_invariance_holds": true,
+  "counts": {
+    "exact": 2000,
+    "moment": 200000,
+    "predicate": 2000
+  },
+  "free_null_focal_expected": 0.47619047619047616,
+  "free_null_focal_mean": 0.4757530295758929,
+  "free_null_focal_se": 0.00019738624107879866,
+  "free_null_share_means": [
+    0.09532325808436369,
+    0.2377904741443451,
+    0.3176059803399722,
+    0.2379625554315482,
+    0.0953961029218178,
+    0.015921629077952484
+  ],
+  "inherited_predicate_sha256": "64a1d6e1b8f6c957079643b46c2dd3c61fdbe7ebe1ac5ad2d112a76e1fd77ca8",
+  "ladder_ref": "zenodo-10.5281-zenodo.21750029",
+  "pair_null_order6_energy_mean": 45090.23904,
+  "pair_null_order6_share_mean": 0.03225892788461539,
+  "passed": true,
+  "published_predicate_sha256": "b928e9539bd184f75d5d318f635149a3ee8aed2b20df7314ceae574bb03e3e68",
+  "route_two_v2_is_a_branch_not_a_stop": true,
+  "seed": 21776041,
+  "tolerance_standard_errors": 4.0,
+  "v2_passed": true
+}

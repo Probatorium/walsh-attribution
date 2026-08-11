@@ -135,3 +135,59 @@ with it, accepting that the entry names the work rather than the commit.
 
 **Not done, deliberately.** No history rewrite. A repository whose whole
 claim is that its record is exact cannot buy neatness with a rewrite.
+
+---
+
+## Defect five: the validation plan fixed a tolerance and forgot the draw counts
+
+**What.** `VALIDATION-PLAN.md` fixes the tolerance of V3 and V4, four
+standard errors of the sample mean with the standard error taken from the
+sample's own dispersion, and it never says how many draws those checks are
+computed over. It says "the declared draws" and points at a declaration that
+does not exist: the signed preregistration fixes the sample size of the
+analysis run, not of the validation, and the validation runs on its own
+stream.
+
+**How found.** While writing the sampler, by trying to read the count out of
+the plan and not finding one.
+
+**Done.** The three counts are declared in the module docstring of
+`analysis/validate.py`, in writing, before the run rather than after it, with
+the reason for each. The moment checks use the same count as the analysis run
+so that the acceptance test has the precision of the run it gates. Nothing in
+`VALIDATION-PLAN.md` is edited, because filling the gap silently in the
+document that has the gap is the failure mode this register exists against.
+
+**Cost.** A reader of the plan alone cannot tell how strong V3 and V4 are.
+They have to open the code. That is a real cost of a plan that governs a run
+and does not fully determine it.
+
+---
+
+## Defect six: an acceptance test was briefly written so that it was easier to pass
+
+**What.** The first version of the free null check on the focal share
+compared the sample mean against its analytic value using a bound on the
+standard error rather than the standard error: the sum of the two per order
+standard errors, which is at least the standard error of their sum. A
+tolerance of four standard errors applied to an over-estimated standard error
+is a wider window than the one the plan declares. The check was therefore
+easier to pass than written, and the direction of the error is the wrong one
+for an acceptance test.
+
+**How found.** By reading the code while writing this register, before the
+result had been committed.
+
+**Done.** The focal share is now accumulated as its own quantity, so the
+check uses the standard error of the thing it is testing. The validation was
+run twice. The two runs draw the same numbers, because the seed, the stream
+and the order of the calls that consume randomness are unchanged and the fix
+consumes none, and the reported means are identical between them. What
+changed is only the width of the window: the deviation is reported against
+the true standard error and is larger than it was against the bound, and it
+passes either way.
+
+**Cost.** None to the record, since the loose version never reached a commit.
+The general point it illustrates is worth keeping: a conservative bound is
+conservative for a confidence statement and anti-conservative for an
+acceptance test, and the two are easy to confuse.
