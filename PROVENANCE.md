@@ -43,6 +43,10 @@ Digests are SHA-256 of the blob contents at that commit, as read.
 | `analysis/core.py` | `64a1d6e1b8f6c957079643b46c2dd3c61fdbe7ebe1ac5ad2d112a76e1fd77ca8` |
 | `analysis/neighbour.py` | `02c3b02e3c0f026e27a8c7ad1a5969d3d0fff4cfe9a64b8900a362949add8881` |
 | `analysis/validate.py` | `28cddaa5aa42affbb1d6fe3ce48df2d708469bc22ee633ebc36cc8e8c63b767d` |
+| `tools/prepublish.py` | `2cec0109d25a44851fb93729ebb7da03816d956e4828f8dce37693eb5b580996` |
+
+The last row was read in session two, at the same commit, when the house
+procedure of `CONTACT-RULES.md` rule six first had to run.
 
 ## What this lane took, file by file
 
@@ -77,6 +81,15 @@ are marked NEW in the file:
   prints and the four the unregistered exploration produced;
 - tests of the untouchable gate's pattern boundaries, which that lane's suite
   did not have.
+
+### The pre publication sweep: patterns taken, reporting rewritten
+
+`tools/prepublish.py` takes that lane's pattern list and its named allowance
+mechanism, in which nothing is skipped without a printed reason. The blob
+enumeration is the same idea, oldest commit first, so that a finding is
+reported against the commit where it entered rather than the newest one that
+still carries it. The reporting, the counts and the exit contract are
+rewritten here.
 
 ### The sampler: read, not copied, and reimplemented from the signed definition
 
