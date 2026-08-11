@@ -1,0 +1,137 @@
+# Defects
+
+Signed texts are not amended in this lane. When something is found to be
+wrong or badly posed, it is recorded here and corrected forward. This file is
+append only in practice: entries are added, and an entry that turns out to be
+mistaken gets a later entry saying so rather than an edit.
+
+Every entry states what the defect is, how it was found, what was done, and
+what it cost. An entry that cannot say how it was found is a weaker entry and
+should say that too.
+
+Opened in the inaugural session with four entries.
+
+---
+
+## Defect one: the signature of the preregistration contradicts its own section (b)
+
+**What.** The closing section of `PREREGISTRATION.md` opens with "No quantity
+of `N0` or `N1` has been computed at the time of this commit." Sections (b.3)
+and (b.4) of the same document compute two quantities of exactly those
+families: the exact mean of the focal statistic under `N0`, and the exact
+mean of the order 6 energy under `N1`. Both are derived by hand, both are
+printed, and both are quantities of a null family. The sentence is false as
+written.
+
+**How found.** By re-reading the signed document against its own contents
+while writing this register, in the same session, after the root commit
+existed.
+
+**What the document should have said.** The third sentence of the same
+paragraph already says it: the arithmetic performed "concerns no sample, and
+is checkable by hand from this text alone". That is the restriction that was
+meant and it is the one that governs. The correct claim is that nothing was
+measured: no draw was taken from either family, no sampler existed, and the
+received sequence had not been read. The claim that no quantity of either
+family had been derived is wrong and was never true of a document whose whole
+section (b) is such derivations.
+
+**Done.** Nothing to the signed text, which stands as it is. Corrected
+forward here. Any reader of the signature should read its first sentence as
+governed by its third.
+
+**Cost.** A reader of the signature alone would take the document to claim
+more purity than it has. The claim it actually needs, and which is true, is
+the narrower one. The cost is real, it is not recovered by this entry, and it
+is a good argument for writing the narrow claim first and the sweeping one
+never.
+
+**What it does not affect.** The declared analytic facts are predictions
+under test in `VALIDATION-PLAN.md`, they are registered in `FIGURES.jsonl` as
+unusable until an artefact here produces them, and none of them is a focal
+quantity. Nothing about the design changes.
+
+---
+
+## Defect two: the untouchable gate refused its own test suite
+
+**What.** The pattern tests added in this lane wrote an untouchable
+repository name as a literal fixture in `tools/test_gates.py`. The gate scans
+every tracked text file, that file is not in the short allowance of files
+permitted to name those repositories, and so the suite that tests the rule
+was itself an offender against it.
+
+**How found.** By the gate, on the first commit that tried to carry it. The
+commit was refused before it existed.
+
+**Done.** Every fixture in that test is now built from the tool's own list at
+run time, so no untouchable name is written anywhere in the file. The
+alternative, adding the suite to the allowance, was rejected: an exemption
+for the enforcer is the first hole a reader should look for, and granting one
+would make every later clean sweep worth less.
+
+**Cost.** None beyond the fix. The defect never entered the history, because
+the pre-commit hook ran before the commit was created.
+
+---
+
+## Defect three: the figure registry has no status for a derivation made here and not executed
+
+**What.** `PREREGISTRATION.md` derives two constants by hand. They are not
+citations: they came from nowhere outside this repository. They are also not
+verified here: no artefact in this repository has produced them. The registry
+carries three statuses, `cited-unverified`, `verified-here` and `superseded`,
+and none of them is the right name for that state. Both constants are filed
+as `cited-unverified`.
+
+**How found.** While registering them, by noticing that the status being
+applied said something untrue about where they came from.
+
+**Done.** The status is accurate about the only thing the gate acts on, which
+is usability: both are blocked from every commit message until an artefact
+here produces them, which is exactly right. The `object` field of both
+records says in words that they are hand derivations of this lane and
+unexecuted, so the record as a whole is not misleading even though its status
+label is.
+
+The status set was not extended. The gate and its tests came from a closed
+lane at a named commit, and changing its vocabulary in the same session that
+adopted it would leave the inherited tests covering a tool that no longer
+exists. A fourth status is a reasonable correction for a later session and is
+recorded here as an option, not taken.
+
+**Cost.** A reader scanning statuses rather than objects would take two hand
+derivations for external citations. That is a real misreading and this entry
+is the only thing standing against it until the status set is fixed.
+
+---
+
+## Defect four: the effort log binds to its commits more weakly than it looks
+
+**What.** Two things, both about binding rather than integrity.
+
+First, entries are appended when the work is done, which is before the commit
+that carries the work exists. Only the entry for the root commit carries a
+commit hash; the rest bind to their work by timestamp and by the list of
+artefacts they name. That is a weaker binding than a hash.
+
+Second, `EFFORT-LOG.jsonl` was staged with the apparatus commit and then not
+staged again until the validation commit, so between those two commits the
+tracked copy of the log was one commit behind the working copy. A reader
+checking out the registers commit would find a log that does not mention the
+registers.
+
+**How found.** By reading `git status` after a commit and seeing the log
+listed as modified rather than clean.
+
+**Done.** From the validation commit onward the log is staged with every
+commit. The earlier gap stands in the history and is not rewritten.
+
+**Cost.** Small and bounded. The hash chain is intact throughout and no entry
+is altered; what is weaker than it appears is the link from an entry to the
+commit that carried its work, not the integrity of the entry itself. The
+practice that follows: append the entry, make the commit, and stage the log
+with it, accepting that the entry names the work rather than the commit.
+
+**Not done, deliberately.** No history rewrite. A repository whose whole
+claim is that its record is exact cannot buy neatness with a rewrite.
