@@ -48,8 +48,8 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
-import math
 import sys
 from fractions import Fraction
 from pathlib import Path
@@ -60,6 +60,32 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import core
 import neighbour
+
+ROOT = Path(__file__).resolve().parent.parent
+
+# The modules this validation is a statement about. A validation is a claim
+# about code, and a claim about code that does not name the code is worth
+# nothing once the code changes. These digests go into the result file and
+# `tools/validation_gate.py` refuses a commit when any of them has moved.
+#
+# The list is exactly what this file imports from this repository, plus this
+# file. Its limitation is stated rather than left to be discovered: a module
+# added later that the validation does not import is not covered, and it is
+# not covered on purpose, because a new consumer of the sampler cannot
+# invalidate a run that already happened. What can invalidate it is a change
+# to the sampler, the transform, the neighbour reader or the harness, and
+# those are the four things listed.
+DEPENDENCIES = ["analysis/core.py", "analysis/neighbour.py",
+                "analysis/validate.py"]
+
+
+def module_digests():
+    out = {}
+    for relpath in DEPENDENCIES:
+        out[relpath] = hashlib.sha256(
+            (ROOT / relpath).read_bytes()).hexdigest()
+    return out
+
 
 SEED = 21776041           # PREREGISTRATION.md section (f)
 N_MOMENT = 200_000
@@ -369,7 +395,11 @@ def main():
               "declared test set has twenty-eight members.")
     print("=" * 70)
 
-    out = Path(__file__).resolve().parent.parent / "results"
+    # Written last, so that the digests describe the files as they stood for
+    # the run that has just finished.
+    RESULT["dependency_sha256"] = module_digests()
+
+    out = ROOT / "results"
     out.mkdir(exist_ok=True)
     (out / "validation.json").write_text(
         json.dumps(RESULT, indent=2, sort_keys=True) + "\n",

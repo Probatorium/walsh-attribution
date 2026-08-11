@@ -14,6 +14,7 @@ past entry in a hash chain, and a numeral smuggled into a commit message.
 Run: python tools/test_gates.py
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -23,6 +24,7 @@ import dashcheck
 import effortlog
 import figures
 import untouchable
+import validation_gate
 
 PASSED = []
 FAILED = []
@@ -221,6 +223,39 @@ def test_untouchable_patterns():
           and "REFERENCES.md" not in untouchable.ALLOWED)
 
 
+def test_validation_staleness():
+    """NEW in session three. The gate that ties the validation to its code.
+
+    Attacked with a digest that is wrong and with a path that is not there,
+    rather than only exercised through a run that happens to pass.
+    """
+    real = "tools/validation_gate.py"
+    good = validation_gate.digest_of(real)
+
+    stale, missing = validation_gate.compare({real: good})
+    check("a module that has not moved is neither stale nor missing",
+          stale == [] and missing == [])
+
+    stale, missing = validation_gate.compare({real: "0" * 64})
+    check("a module whose digest does not match is reported stale",
+          len(stale) == 1 and stale[0][0] == real and missing == [])
+    check("the stale report carries both digests",
+          stale[0][1] == "0" * 64 and stale[0][2] == good)
+
+    stale, missing = validation_gate.compare({"analysis/not-a-file.py": good})
+    check("a recorded module that no longer exists is reported missing",
+          missing == ["analysis/not-a-file.py"] and stale == [])
+
+    stale, missing = validation_gate.compare({})
+    check("an empty record has nothing to report here, and main refuses it "
+          "separately", stale == [] and missing == [])
+
+    check("the live record names the modules the validation imports",
+          set(json.loads((Path(validation_gate.RECORD)).read_text(
+              encoding="utf-8"))["dependency_sha256"])
+          >= {"analysis/core.py", "analysis/validate.py"})
+
+
 def test_supersession():
     """A figure moves from cited to measured by retirement, not by deletion."""
 
@@ -269,6 +304,8 @@ def main():
     test_this_lanes_own_temptations()
     print("\nuntouchable patterns")
     test_untouchable_patterns()
+    print("\nvalidation staleness")
+    test_validation_staleness()
     print("\nsupersession")
     test_supersession()
     print(f"\npassed {len(PASSED)}, failed {len(FAILED)}")

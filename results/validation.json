@@ -158,6 +158,11 @@
     "moment": 200000,
     "predicate": 2000
   },
+  "dependency_sha256": {
+    "analysis/core.py": "2ac46448481d292b260e66a6b12eeaddb896362e0268ec3f9a39da7d08ead691",
+    "analysis/neighbour.py": "bcd42273ff46fd3a07186247c268ba760d3c1daaf4a95c50ff024568b57c374e",
+    "analysis/validate.py": "9185a3daa9be679bac6e88a39787b0f087ef8257f3d58bc312a3a206b4562eba"
+  },
   "free_null_focal_expected": 0.47619047619047616,
   "free_null_focal_mean": 0.4757530295758929,
   "free_null_focal_se": 0.00019738624107879866,

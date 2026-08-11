@@ -191,3 +191,41 @@ passes either way.
 The general point it illustrates is worth keeping: a conservative bound is
 conservative for a confidence statement and anti-conservative for an
 acceptance test, and the two are easy to confuse.
+
+---
+
+## Defect seven: the validation was a claim about code that named no code
+
+**What.** `results/validation.json` recorded that both routes passed and did
+not record what they passed on. Nothing tied the run to the source of the
+sampler, the transform or the harness, so any later edit to
+`analysis/core.py` would have left a result file asserting a validation of
+code that no longer existed, with nothing in the repository noticing.
+
+**How found.** By this lane, about itself, in `SESSION-REPORT-002.md`, in the
+section on the test suite, and reported there as a weakness rather than
+discovered later by a reader. What that report did not do was fix it.
+
+**Done.** Closed by mechanism, in session three, not by an intention to
+remember. `analysis/validate.py` now records the digest of every module the
+validation is a statement about, computed at the end of the run so that the
+digests describe the files as they stood for it. `tools/validation_gate.py`
+recomputes them and fails, naming the file and printing both digests, when
+any has moved. It runs with the standing gates, so a commit made on a stale
+validation is refused before it exists.
+
+It was tested by breaking it: a comment appended to `analysis/core.py` made
+the gate fail naming that file, made the standing gates refuse, and the
+failure went away when the file was restored. Four further checks attack the
+comparison directly with a wrong digest and an absent path.
+
+**What it deliberately does not do.** It does not fail on a validation that
+did not pass, because a record of a failed validation has to be committable
+or the repository cannot report its own bad news. The refusal to measure on a
+failed validation lives in `analysis/measure.py`. And it does not cover a
+module the validation never imported, because a new consumer of the sampler
+cannot invalidate a run that already happened.
+
+**Cost.** The window in which the hole existed ran from the validation commit
+of session two to this one, and inside that window no module changed, which
+is checkable from the history rather than asserted here.

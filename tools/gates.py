@@ -9,6 +9,12 @@ Gates, in the order they run:
   2. effort log     the hash chain is intact and the session structure is sound
   3. figure gate    the registry parses and every record is well formed
   4. untouchable    contact rule five is not breached in tree, history or config
+  5. validation     the sampler on record is the sampler in the tree
+
+The fifth was added in session three. It exists because session two reported,
+in its own rigour report, that nothing forced the validation to be re-run when
+its code changed. A weakness a lane notices about itself and then leaves to
+memory is a weakness it has decided to keep.
 
 The figure gate for commit messages runs from the commit-msg hook, not here,
 because it needs the message. This runner checks only that the registry it
@@ -64,6 +70,7 @@ def main():
         run("effort log", [str(TOOLS / "effortlog.py"), "verify"]),
         registry_wellformed(),
         run("untouchable gate", [str(TOOLS / "untouchable.py")]),
+        run("validation gate", [str(TOOLS / "validation_gate.py")]),
     ]
     print()
     if any(codes):
